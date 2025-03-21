@@ -1,0 +1,18 @@
+name: my_symfony_project
+recipe: symfony
+config:
+  webroot: public
+  php: 8.1
+  via: nginx
+  database: mysql
+services:
+  appserver:
+    via: nginx
+  database:
+    type: mariadb
+    portforward: true
+tooling:
+  composer:
+    service: appserver
+  symfony:
+    service: appserver
